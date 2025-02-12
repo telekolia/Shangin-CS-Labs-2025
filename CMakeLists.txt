@@ -8,8 +8,8 @@ set(CMAKE_CXX_STANDARD 20)
 set(${project}_SOURCES
         main.cpp)
 
-add_subdirectory(mymath)
-add_subdirectory(myteacher)
+link_directories(${CMAKE_CURRENT_SOURCE_DIR}/myteacher)
+link_directories(${CMAKE_CURRENT_SOURCE_DIR}/mymath)
 
 set(${project}_SOURCE_LIST
         ${${project}_SOURCES})
