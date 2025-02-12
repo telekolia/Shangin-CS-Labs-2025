@@ -1,20 +1,20 @@
 cmake_minimum_required(VERSION 3.23)
 
-set(project "MPrinter")
+set(project "lab1")
 project(${project})
 
 set(CMAKE_CXX_STANDARD 20)
 
 set(${project}_SOURCES
-        MPrinter.cpp)
+        main.cpp)
 
-set(${project}_HEADERS
-        MPrinter.hpp)
+add_subdirectory(mymath)
+add_subdirectory(myteacher)
 
 set(${project}_SOURCE_LIST
-        ${${project}_SOURCES}
-        ${${project}_HEADERS})
+        ${${project}_SOURCES})
 
-add_library(${project}
-        STATIC
+add_executable(${project}
         ${${project}_SOURCE_LIST})
+
+target_link_libraries(${project} mymath myteacher)
