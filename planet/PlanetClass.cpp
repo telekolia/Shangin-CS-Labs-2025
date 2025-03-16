@@ -18,7 +18,7 @@ Planet::Planet() {
     satellites = 0;
 }
 
-Planet::Planet(const char* name, int diam1 = 1000, bool life1 = false, int satel1 = 0) {
+Planet::Planet(const char* name, int diam1, bool life1, int satel1) {
     this->name = new char[std::strlen(name) + 1];
     std::memcpy(this->name, name, std::strlen(name));
     this->name[std::strlen(name)] = '\0';
