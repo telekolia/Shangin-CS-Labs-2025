@@ -2,39 +2,40 @@
 
 #include "planet/PlanetClass.hpp"
 
-#include <iostream>
-#include <iomanip>
 #include <fstream>
+#include <iomanip>
+#include <iostream>
 
 namespace {
-    const unsigned int kDefaultcapacity = 8;
+const unsigned int kDefaultcapacity = 8;
 }
 
 namespace DB {
-    class DBArray {
-        private:
-         Planet::Planet* ptr;
-         unsigned int size;
-         unsigned int capacity;
+class DBArray {
+ private:
+    Planet::Planet* ptr;
+    unsigned int size;
+    unsigned int capacity;
 
-         void IncreaceCapacity();
-        public:
-         DBArray();
+    void IncreaceCapacity();
 
-         DBArray(const char* fileName);
+ public:
+    DBArray();
 
-         ~DBArray();
+    DBArray(const char* fileName);
 
-         void ReadFromFile(const char* fileName);
+    ~DBArray();
 
-         void WriteToFile(char* fileName);
+    void ReadFromFile(const char* fileName);
 
-         void Print();
+    void WriteToFile(char* fileName);
 
-         void AddToEnd(Planet::Planet newEl);
+    void Print();
 
-         void ChangeElement(unsigned int index, Planet::Planet element);
-    };
+    void AddToEnd(Planet::Planet newEl);
 
-    void StartDBController(const char* name);
-}
+    void ChangeElement(unsigned int index, Planet::Planet element);
+};
+
+void StartDBController(const char* name);
+}  // namespace DB

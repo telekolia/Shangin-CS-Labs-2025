@@ -1,8 +1,9 @@
-#pragma once
+#ifndef PLANET_H
+#define PLANET_H
 
-#include <iostream>
-#include <iomanip>
 #include <fstream>
+#include <iomanip>
+#include <iostream>
 
 namespace Planet {
 class Planet {
@@ -11,6 +12,7 @@ class Planet {
     int diameter;
     bool life;
     int satellites;
+
  public:
     Planet();
 
@@ -20,15 +22,15 @@ class Planet {
 
     ~Planet();
 
-    Planet& operator =(const Planet& obj);
+    Planet& operator=(const Planet& obj);
 
-    friend std::ostream& operator <<(std::ostream& out, const Planet& obj);
+    friend std::ostream& operator<<(std::ostream& out, const Planet& obj);
 
-    friend std::ofstream& operator <<(std::ofstream& out, const Planet& obj);
+    friend std::ofstream& operator<<(std::ofstream& out, const Planet& obj);
 
-    friend std::istream& operator >>(std::istream& in, Planet& obj);
+    friend std::istream& operator>>(std::istream& in, Planet& obj);
 
-    friend std::ifstream& operator >>(std::ifstream& in, Planet& obj);
+    friend std::ifstream& operator>>(std::ifstream& in, Planet& obj);
 
     char* getName() const;
 
@@ -46,14 +48,15 @@ class Planet {
 
     void setSatellites(const int& satel1);
 
-    bool operator ==(const Planet& obj);
+    bool operator==(const Planet& obj);
 
-    bool operator !=(const Planet& obj);
+    bool operator!=(const Planet& obj);
 
-    bool operator >(const Planet& obj);
+    bool operator>(const Planet& obj);
 
-    bool operator <(const Planet& obj);
-
+    bool operator<(const Planet& obj);
 };
 
-}
+}  // namespace Planet
+
+#endif //PLANET_H

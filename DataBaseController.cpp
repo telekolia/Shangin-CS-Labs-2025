@@ -1,15 +1,15 @@
-#include "planet/PlanetClass.hpp"
 #include "DataBaseController.hpp"
+#include "planet/PlanetClass.hpp"
 
-#include <iostream>
-#include <iomanip>
-#include <fstream>
 #include <cstring>
+#include <fstream>
+#include <iomanip>
+#include <iostream>
 
 namespace {
-    const unsigned int kDefaultCapacity = 8;
-    const int kBufferLength = 512;
-}
+const unsigned int kDefaultCapacity = 8;
+const int kBufferLength = 512;
+}  // namespace
 
 namespace DB {
 void DBArray::IncreaceCapacity() {
@@ -20,7 +20,6 @@ void DBArray::IncreaceCapacity() {
     delete[] ptr;
     ptr = temp;
 }
-
 
 DBArray::DBArray() {
     capacity = kDefaultCapacity;
@@ -56,7 +55,6 @@ void DBArray::ReadFromFile(const char* fileName) {
 }
 
 void DBArray::WriteToFile(char* fileName) {
-
     if (!fileName) {
         return;
     }
@@ -103,4 +101,4 @@ void StartDBController(const char* name) {
     a.Print();
 }
 
-}
+}  // namespace DB

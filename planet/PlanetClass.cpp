@@ -54,7 +54,6 @@ Planet& Planet::operator=(const Planet& obj) {
     setSatellites(obj.satellites);
 }
 
-
 std::ostream& operator<<(std::ostream& out, const Planet& obj) {
     out << obj.name << ' ' << obj.diameter << ' ' << obj.life << ' ' << obj.satellites << '\n';
     return out;
