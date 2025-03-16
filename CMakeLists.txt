@@ -1,16 +1,20 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(main)
+project(lab_2)
 
 # файлы перечисляются либо через пустую строку, либо через пробел
 set(SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/MPrinter.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/DataBaseController.cpp
 )
 
 set(HEADERS
-    ${CMAKE_CURRENT_SOURCE_DIR}/MPrinter.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/DataBaseController.hpp
 )
+
+add_subdirectory(planet)
+
+target_link_libraries(${project} planet)
 
 # новая цель с названием аналогичным названию проекта
 add_executable(${CMAKE_PROJECT_NAME} ${SOURCES} ${HEADERS})

@@ -14,7 +14,7 @@ class Planet {
  public:
     Planet();
 
-    Planet(const char* n1, int diam1 = 1000, bool life1 = false, int satel1 = 0);
+    Planet(const char* name, int diam1 = 1000, bool life1 = false, int satel1 = 0);
 
     Planet(const Planet& obj);
 
@@ -30,13 +30,13 @@ class Planet {
 
     friend std::ifstream& operator >>(std::ifstream& in, Planet& obj);
 
-    char* getName();
+    char* getName() const;
 
-    int getDiameter();
+    int getDiameter() const;
 
-    bool getLife();
+    bool getLife() const;
 
-    int getSatellites();
+    int getSatellites() const;
 
     void setName(const char* n1);
 
