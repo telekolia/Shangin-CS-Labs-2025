@@ -11,10 +11,9 @@ const unsigned int kDefaultCapacity = 8;
 const int kBufferLength = 512;
 }  // namespace
 
-namespace DB {
 void DBArray::IncreaceCapacity() {
     capacity *= 2;
-    Planet::Planet* temp = new Planet::Planet[capacity];
+    Planet* temp = new Planet[capacity];
     std::copy(ptr, ptr + size, temp);
 
     delete[] ptr;
@@ -24,7 +23,7 @@ void DBArray::IncreaceCapacity() {
 DBArray::DBArray() {
     capacity = kDefaultCapacity;
     size = 0;
-    ptr = new Planet::Planet[capacity];
+    ptr = new Planet[capacity];
 }
 
 DBArray::DBArray(const char* fileName) {
@@ -45,7 +44,7 @@ void DBArray::ReadFromFile(const char* fileName) {
     int count;
     in >> count;
     capacity = count;
-    ptr = new Planet::Planet[count];
+    ptr = new Planet[count];
     for (int i = 0; i < count; ++i) {
         in >> ptr[i];
         ++size;
@@ -79,7 +78,7 @@ void DBArray::Print() {
     }
 }
 
-void DBArray::AddToEnd(Planet::Planet newEl) {
+void DBArray::AddToEnd(Planet newEl) {
     if (++size > capacity) {
         IncreaceCapacity();
     }
@@ -87,7 +86,7 @@ void DBArray::AddToEnd(Planet::Planet newEl) {
     ptr[size - 1] = newEl;
 }
 
-void DBArray::ChangeElement(unsigned int index, Planet::Planet element) {
+void DBArray::ChangeElement(unsigned int index, Planet element) {
     if (index > size) {
         std::cout << "Неверно указан номер изменяемого эллемента\n";
         return;
@@ -100,5 +99,3 @@ void StartDBController(const char* name) {
     DBArray a(name);
     a.Print();
 }
-
-}  // namespace DB

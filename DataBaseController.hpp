@@ -10,10 +10,9 @@ namespace {
 const unsigned int kDefaultcapacity = 8;
 }
 
-namespace DB {
 class DBArray {
  private:
-    Planet::Planet* ptr;
+    Planet* ptr;
     unsigned int size;
     unsigned int capacity;
 
@@ -32,10 +31,9 @@ class DBArray {
 
     void Print();
 
-    void AddToEnd(Planet::Planet newEl);
+    void AddToEnd(Planet newEl);
 
-    void ChangeElement(unsigned int index, Planet::Planet element);
+    void ChangeElement(unsigned int index, Planet element);
 };
 
 void StartDBController(const char* name);
-}  // namespace DB

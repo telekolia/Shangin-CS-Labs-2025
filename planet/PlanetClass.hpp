@@ -5,7 +5,6 @@
 #include <iomanip>
 #include <iostream>
 
-namespace Planet {
 class Planet {
  private:
     char* name;
@@ -25,8 +24,6 @@ class Planet {
     Planet& operator=(const Planet& obj);
 
     friend std::ostream& operator<<(std::ostream& out, const Planet& obj);
-
-    friend std::ofstream& operator<<(std::ofstream& out, const Planet& obj);
 
     friend std::istream& operator>>(std::istream& in, Planet& obj);
 
@@ -56,7 +53,5 @@ class Planet {
 
     bool operator<(const Planet& obj);
 };
-
-}  // namespace Planet
 
 #endif //PLANET_H

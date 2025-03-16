@@ -9,7 +9,6 @@ namespace {
 const int kBufferLength = 128;
 }
 
-namespace Planet {
 Planet::Planet() {
     name = new char[1];
     name[0] = '\0';
@@ -131,5 +130,3 @@ bool Planet::operator>(const Planet& obj) {
 bool Planet::operator<(const Planet& obj) {
     return (this->diameter < obj.diameter);
 }
-
-};  // namespace Planet
