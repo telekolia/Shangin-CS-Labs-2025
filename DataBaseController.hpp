@@ -6,9 +6,26 @@
 #include <iomanip>
 #include <iostream>
 
-namespace {
-const unsigned int kDefaultcapacity = 8;
+namespace ReadersAndPrinters {
+   const char* ReadFileNameFromStdin();
 }
+
+namespace Sort {
+   enum class SortOrder : bool {
+       DescendingOrder = false,
+       AscendingOrder,
+   };
+}
+
+enum class DBCommand : int {
+   ReadDB = 1,
+   WriteDBToFile,
+   SortDB,
+   AddElement,
+   DeleteElement,
+   ChangeElement,
+   PrintDB,
+};
 
 class DBArray {
  private:
@@ -27,13 +44,19 @@ class DBArray {
 
     void ReadFromFile(const char* fileName);
 
-    void WriteToFile(char* fileName);
+    void WriteToFile(const char* fileName);
+
+    void SelectionSort(Sort::SortOrder sortOrder);
 
     void Print();
 
     void AddToEnd(Planet newEl);
 
+    void DeleteElement(unsigned int index);
+
     void ChangeElement(unsigned int index, Planet element);
+
+    friend void Menu(const char* name);
 };
 
-void StartDBController(const char* name);
+void StartMainLoop(const char* name);

@@ -51,6 +51,7 @@ Planet& Planet::operator=(const Planet& obj) {
     setDiameter(obj.diameter);
     setLife(obj.life);
     setSatellites(obj.satellites);
+    return *this;
 }
 
 std::ostream& operator<<(std::ostream& out, const Planet& obj) {
