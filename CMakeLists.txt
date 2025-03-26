@@ -1,22 +1,24 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.23)
 
-project(main)
+set(project "lab2")
+project("${project}")
 
-# файлы перечисляются либо через пустую строку, либо через пробел
-set(SOURCES
-    ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/MPrinter.cpp
-)
+set(CMAKE_CXX_STANDARD 17)
 
-set(HEADERS
-    ${CMAKE_CURRENT_SOURCE_DIR}/MPrinter.hpp
-)
+set(${project}_SOURCES
+        DataBaseController.cpp
+        main.cpp)
 
-# новая цель с названием аналогичным названию проекта
-add_executable(${CMAKE_PROJECT_NAME} ${SOURCES} ${HEADERS})
-set_property(TARGET ${CMAKE_PROJECT_NAME} PROPERTY CXX_STANDARD 20)
-target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -Wall -Wextra -Werror -Wpedantic)
+add_subdirectory(planet)
+
+set(${project}_SOURCE_LIST
+        ${${project}_SOURCES})
+
+add_executable(${project}
+        ${${project}_SOURCE_LIST})
 
 if(ENABLE_DEBUG)
-    target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -g)
+    target_compile_options(${project} PRIVATE -g)
 endif()
+
+target_link_libraries(${project} planet)
