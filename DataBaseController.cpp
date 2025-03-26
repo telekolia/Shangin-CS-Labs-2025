@@ -72,7 +72,7 @@ void Swap(Planet* firstElementptr, Planet* secondElementptr) {
 void DBArray::IncreaceCapacity() {
     capacity *= 2;
     Planet* temp = new Planet[capacity];
-    std::copy(ptr, ptr + size - 1, temp);
+    std::copy(ptr, ptr + size, temp);
 
     delete[] ptr;
     ptr = temp;
@@ -165,7 +165,7 @@ void DBArray::AddToEnd(Planet newEl) {
     }
 
     ptr[size] = newEl;
-    size++;
+    ++size;
 }
 
 void DBArray::DeleteElement(unsigned int index) {
